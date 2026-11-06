@@ -1,0 +1,14 @@
+name: Snack order check
+on: [push]
+permissions:
+  contents: read
+jobs:
+  check-order:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check snack order
+        run: python scripts/check_order.py
